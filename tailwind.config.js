@@ -6,7 +6,9 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    require('flowbite/plugin')
+    require('tailwindcss'),
+    require('autoprefixer'),
+    // Any other PostCSS plugins you may need
   ],
 }
 
