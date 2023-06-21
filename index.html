@@ -42,11 +42,14 @@
     <style type="text/tailwindcss">
       /* common uses */
 
+      body,
       body {
         padding: 0%;
+        height: 100%;
         margin: 0%;
         box-sizing: border-box;
       }
+
       .heading_lg {
         @apply font-bold text-5xl;
       }
@@ -120,10 +123,10 @@
       /* state climate start */
 
       .state_container {
-        @apply bg-gray-100 relative w-full bg-cover;
+        @apply relative w-full bg-[url('./Media/state-img.png')] bg-cover;
       }
       .state_flex {
-        @apply flex py-10 gap-10 justify-center items-center px-10 flex-wrap;
+        @apply flex md:p-10 p-10 gap-10 justify-center items-center  flex-wrap;
       }
       .state_left {
         @apply basis-full lg:basis-3/5;
@@ -166,17 +169,49 @@
 
       /* commercial start */
       .commercial {
-        @apply grid grid-cols-2  place-items-center  lg:grid-cols-4 py-10 gap-6;
+        @apply grid grid-cols-1  place-items-center md:grid-cols-2  lg:grid-cols-4 py-10 gap-6;
       }
       .commercial .card {
-        @apply flex flex-col gap-3 items-start;
+        @apply flex flex-col gap-3 items-start p-3 px-5;
+      }
+      .commercial .card_image {
+        @apply w-20 h-20 shadow-lg p-5 rounded-full  flex justify-center items-center;
+      }
+      .card_image.active {
+        @apply bg-light-primary;
+      }
+      .invert_img.active {
+        @apply invert;
+      }
+      .card.active {
+        @apply shadow-lg;
       }
       /* commercial end */
+      /* security start */
+      .main_security {
+        @apply bg-[url('./Media/curved-phone.png')] md:bg-[url('./Media/state-bg.png')] bg-cover   py-20 min-h-[100%]  w-[100vw] max-w-full  bg-no-repeat;
+      }
+      .bg_security {
+        /* background-image: url("./Media/security-bg.png");
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: 52% auto; */
+      }
+      .main_security .security_box {
+        @apply grid grid-cols-1 md:grid-cols-3 gap-10;
+      }
+      .security_box .box_list {
+        @apply md:py-0 py-4 md:gap-3 flex flex-col gap-5;
+      }
+      .box_list li {
+        @apply font-bold py-1 whitespace-nowrap;
+      }
+      /* security end */
     </style>
 
     <title>Home Page</title>
   </head>
-  <body class="light-mode">
+  <body class="light-mode dark:bg-black">
     <!-- header -->
     <header class="header">
       <!-- wrapper -->
@@ -323,7 +358,9 @@
       <section class="section_divider">
         <div class="flex flex-col gap-5">
           <div class="customer_tagline">
-            <h2 class="heading_lg w-full">What our customers say about us</h2>
+            <h2 class="heading_lg w-full dark:text-white">
+              What our customers say about us
+            </h2>
             <div class="flex items-center gap-2">
               <div class="arrow_btn">
                 <svg
@@ -360,11 +397,13 @@
               </div>
             </div>
           </div>
-          <div class="customer_box" id="customer_card">
+          <div class="customer_box py-10" id="customer_card">
             <!-- data comes from  -->
             <script src="./constants/customer.js"></script>
           </div>
-          <div class="py-7 w-full flex justify-center">
+          <div
+            class="py-7 w-full flex justify-center dark:invert dark:grayscale"
+          >
             <img src="./Media/logos-home.png" alt="" />
           </div>
         </div>
@@ -373,16 +412,11 @@
     <!-- customer section end-->
 
     <!-- State climate  -->
-    <section class="section_divider">
+    <section
+      class="section_divider bg-[url('./Media/state-bg.png')] bg-center h-[100%] bg-no-repeat w-full"
+      style="background-size: 100% 100%"
+    >
       <div class="state_container">
-        <div
-          class="absolute z-10 -top-10 md:-top-16 lg:-top-20 rotate-[180deg] w-full"
-        >
-          <div class="absolute bottom-12 shape_rotate w-full">
-            <img src="./icon/curve-line.svg" alt="" />
-          </div>
-          <img src="./icon/bottom.svg" alt="" />
-        </div>
         <div class="state_flex">
           <div class="flex justify-center items-center">
             <div class="w-full md:w-[100%]">
@@ -434,15 +468,6 @@
               </div>
             </button>
           </div>
-        </div>
-
-        <div
-          class="absolute -z-10 -bottom-10 md:-bottom-16 lg:-bottom-20 w-full"
-        >
-          <div class="absolute bottom-12 shape_rotate w-full">
-            <img src="./icon/curve-line.svg" alt="" />
-          </div>
-          <img src="./icon/bottom.svg" alt="" />
         </div>
       </div>
     </section>
@@ -541,16 +566,343 @@
       </div>
     </section>
 
-    <section class="section_divider wrapper">
-      <div>
+    <section class="section_divider">
+      <div class="wrapper">
         <h2 class="heading_lg text-center">Commercial HVAC Services</h2>
 
         <div class="commercial" id="commercialContainer">
           <script src="./constants/commercial_services.js"></script>
         </div>
       </div>
+
+      <div class="section_divider">
+        <div class="state_container">
+          <div
+            class="absolute z-10 -top-10 md:-top-12 lg:-top-24 rotate-[180deg] w-full"
+          >
+            <div class="absolute bottom-12 shape_rotate w-full">
+              <img src="./icon/curve-line.svg" alt="" />
+            </div>
+            <img src="./icon/bottom.svg" alt="" />
+          </div>
+          <div class="mx-auto w-10/12 justify-center text-center py-10">
+            <div class="state_right relative z-20">
+              <h2 class="heading_lg">
+                24 Hour Emergency Commercial HVAC Repair
+              </h2>
+              <p class="text-light-paragraph">
+                Don't Let a Broken Cooling, Refrigeration or Heating System Ruin
+                Your Day! Have you ever experienced the panic that sets in when
+                your refrigeration or heating system suddenly stops working? The
+                last thing you want is a major disruption in your daily routine.
+                That's why STAT Climate Control Solutions is here to help with
+                emergency repair services, available 24 hours, 7 days a week.
+              </p>
+              <button
+                class="primary_gradient_bg w-44 px-4 text-center rounded-full p-2 items-center font-medium text-white flex mx-auto justify-between gap-3"
+              >
+                Learn More
+                <div
+                  class="w-10 h-10 bg-white/50 flex items-center justify-center rounded-full p-3"
+                >
+                  <img src="./icon/arrow.svg" alt="" />
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="absolute z-10 -bottom-10 md:-bottom-16 lg:-bottom-20 w-full"
+          >
+            <div class="absolute bottom-12 shape_rotate w-full">
+              <img src="./icon/curve-line.svg" alt="" />
+            </div>
+            <img src="./icon/bottom.svg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="section_divider wrapper">
+        <div>
+          <h2 class="heading_md text-center">
+            STAT Climate Control Solutions Calgary is a reputable <br />
+            HVAC and Refrigeration company providing services for
+          </h2>
+          <!-- circles -->
+          <div
+            class="flex py-10 justify-center gap-8 relative flex-wrap"
+            id="circle-container"
+          >
+            <div
+              class="flex flex-col gap-6 relative top-0 md:top-20"
+              id="column1"
+            ></div>
+            <div class="flex flex-col gap-6 relative" id="column2"></div>
+            <div
+              class="flex flex-col gap-6 relative top-0 md:top-20"
+              id="column3"
+            ></div>
+            <div class="flex flex-col gap-6 relative" id="column4"></div>
+            <script src="./constants/circle_data.js"></script>
+          </div>
+          <!-- circles -->
+          <div
+            class="flex basis-full flex-col-reverse md:flex-col flex-wrap gap-20 section_divider"
+          >
+            <!-- two column section -->
+            <div class="flex justify-center items-center gap-20 flex-wrap">
+              <div
+                class="basis-full md:basis-2/5 flex gap-6 flex-col text-center md:text-left"
+              >
+                <h2 class="heading_md font-bold">HVAC Control Experts</h2>
+                <p class="text-center md:text-left">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
+                  quae nobis, illo eaque ab maiores aliquam magni asperiores
+                  iste vel.illo eaque ab maiores aliquam magni asperiores <br />
+                  <br />
+
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos,
+                  eius vitae voluptas enim illum natus ad beatae dicta
+                  consequuntur reprehenderit! Lorem ipsum, dolor sit amet
+                  consectetur adipisicing elit. Omnis ex numquam natus.
+                  Sapiente, officia! Ipsam autem voluptates beatae ducimus
+                  officiis.
+                </p>
+
+                <button
+                  class="primary_gradient_bg w-44 px-4 text-left rounded-full p-2 items-center font-medium text-white flex justify-between gap-3"
+                >
+                  Learn More
+                  <div
+                    class="w-10 h-10 bg-white/50 flex items-center justify-center rounded-full p-3"
+                  >
+                    <img src="./icon/arrow.svg" alt="" />
+                  </div>
+                </button>
+              </div>
+              <div class="basis-full md:basis-2/5 relative">
+                <div
+                  class="-left-11 top-4 absolute bg-white h-20 w-20 flex justify-center items-center rounded-full"
+                >
+                  <img
+                    src="./Media/experts.png"
+                    class="w-[70px] h-[70px] object-contain p-4 rounded-full bg-light-primary"
+                    alt=""
+                  />
+                </div>
+                <img
+                  src="./Media/Automation controls.jpg"
+                  class="rounded-3xl"
+                  alt=""
+                />
+              </div>
+            </div>
+
+            <div
+              class="flex-col-reverse lg:flex-row flex justify-center items-center gap-20 flex-wrap"
+            >
+              <div class="basis-full md:basis-2/5 shrink-0 relative">
+                <div
+                  class="-right-11 top-4 absolute bg-white h-20 w-20 flex justify-center items-center rounded-full"
+                >
+                  <img
+                    src="./Media/experts.png"
+                    class="w-[70px] h-[70px] object-contain p-4 rounded-full bg-light-primary"
+                    alt=""
+                  />
+                </div>
+                <img
+                  src="./Media/Breaker panel.jpg"
+                  class="rounded-3xl max-w-full"
+                  alt=""
+                />
+              </div>
+              <div
+                class="basis-full md:basis-2/5 flex gap-6 flex-col text-center md:text-left"
+              >
+                <h2 class="heading_md font-bold">
+                  Building Management <br />
+                  System (BMS)
+                </h2>
+                <p class="text-center md:text-left">
+                  Transform Your Building's Climate with STAT Climate Control
+                  Solutions! Our expert team specializes in Honeywell Webs and
+                  Tridium Niagara 4 open platform installations. From small to
+                  large-scale projects, we've got you covered.
+                  <br />
+                  <br />
+                  Maximize your building's efficiency with our custom control
+                  solutions and energy management services. Stay safe with gas
+                  detection and calibration services.
+                </p>
+
+                <button
+                  class="primary_gradient_bg w-44 px-4 text-left rounded-full p-2 items-center font-medium text-white flex justify-between gap-3"
+                >
+                  Learn More
+                  <div
+                    class="w-10 h-10 bg-white/50 flex items-center justify-center rounded-full p-3"
+                  >
+                    <img src="./icon/arrow.svg" alt="" />
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="flex-1 flex justify-center items-center gap-20 flex-wrap"
+            >
+              <div
+                class="basis-full md:basis-2/5 flex gap-6 flex-col text-center md:text-left"
+              >
+                <h2 class="heading_md font-bold">Backflow Testing</h2>
+                <p class="text-center md:text-left">
+                  Don't risk your business being out of compliance with the
+                  Water Utility Bylaw. Trust STAT Climate Control Solutions for
+                  expert backflow testing.
+                  <br /><br />
+
+                  Our certified technicians are cross-connection control
+                  specialists for The City of Calgary Water Services and can
+                  ensure that all cross connection in your business, such as
+                  restaurants, hotels, schools, hospitals, commercial and
+                  industrial complexes, and apartment buildings, <br />
+                  are working correctly.
+                </p>
+
+                <button
+                  class="cta gap-2 items-center rounded-full flex w-48 p-1 primary_gradient_bg"
+                >
+                  <div
+                    class="bg-white/30 h-10 w-10 rounded-full flex justify-center items-center"
+                  >
+                    <div>
+                      <img
+                        src="./Media/phone.png"
+                        class="invert h-5 w-5"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div class="flex flex-col">
+                    <p class="flex flex-col items-start">
+                      <span
+                        class="font-normal text-sm text-white dark:text-gray-500"
+                        >CALL US 24/7</span
+                      >
+                      <span
+                        class="my-button font-bold text-md text-white dark:text-gray-500"
+                      >
+                        (403) 226-6066
+                      </span>
+                    </p>
+                  </div>
+                </button>
+              </div>
+              <div class="basis-full md:basis-2/5 shrink-0 relative">
+                <div
+                  class="-left-11 top-4 absolute bg-white h-20 w-20 flex justify-center items-center rounded-full"
+                >
+                  <img
+                    src="./Media/experts.png"
+                    class="w-[70px] h-[70px] object-contain p-4 rounded-full bg-light-primary"
+                    alt=""
+                  />
+                </div>
+                <img
+                  src="./Media/Stat Climate Control-0673.jpg"
+                  class="rounded-3xl max-w-full"
+                  alt=""
+                />
+              </div>
+            </div>
+            <!-- two column section -->
+          </div>
+        </div>
+      </div>
     </section>
     <!-- Services end -->
+
+    <!-- security start -->
+
+    <section class="main_security relative" style="background-size: 100% 100%">
+      <div class="relative h-full w-full">
+        <!-- <img
+          src="./Media/state-bg.png"
+          class="w-full h-[80%] hidden lg:block"
+          alt=""
+        /> -->
+
+        <div class="bg_security">
+          <div class="w-11/12 mx-auto flex gap-10 lg:gap-0 flex-col">
+            <h1 class="heading_lg text-left lg:text-center">
+              Security and Fire Life Safety
+            </h1>
+
+            <div
+              class="security_box flex flex-col h-full lg:h-screen md:flex-row justify-around items-center"
+            >
+              <div class="box_list">
+                <h2 class="heading_md">Security</h2>
+                <p>
+                  Are you looking for a reliable and secure security system?
+                  Look no further than STAT Climate Control Solutions.
+                </p>
+
+                <p class="font-medium text-lg">
+                  Some of our capabilities include
+                </p>
+                <ul
+                  class="list-image-[url('./Media/list-style.png')] px-5 flex flex-col"
+                >
+                  <li>Security Consulting Services</li>
+                  <li>Alarm Systems</li>
+                  <li>Facility Security Systems Technologies</li>
+                  <li>Nurse Call Systems</li>
+                  <li>Intercom Systems</li>
+                  <li>Global Positioning Tracking Systems</li>
+                  <li>Networking of Security Systems</li>
+                  <li>Annual Testing and Certification</li>
+                </ul>
+              </div>
+              <div
+                class="md:col-span-2 md:row-span-3 lg:col-span-1 lg:row-span-1"
+              >
+                <img
+                  src="./Media/security.png"
+                  class="w-full h-[100vh]"
+                  alt=""
+                />
+              </div>
+
+              <div class="box_list">
+                <h2 class="heading_md">Fire Life Safety</h2>
+                <p>
+                  Keep your property and loved ones safe with the fire alarm
+                  systems from STAT Climate Control Solutions.
+                </p>
+
+                <p class="font-medium text-lg">We can help you with:</p>
+                <ul
+                  class="list-image-[url('./Media/list-style.png')] px-5 flex flex-col"
+                >
+                  <li>Fire Alarm Systems</li>
+                  <li>Smoke Control</li>
+                  <li>Intelligent and Addressable Systems</li>
+                  <li>Early detection and notification</li>
+                  <li>Sprinkler System Maintenance</li>
+                  <li>Annual Testing and Certification</li>
+                  <li>Fire extinguisher Maintenance</li>
+                  <li>ULC Monitoring</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section_divider"></section>
+
+    <!-- security end -->
   </body>
   <script src="theme.js"></script>
 </html>
