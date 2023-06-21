@@ -1,13 +1,13 @@
 const testimonialData = [{
-    name: "Paul A",
-    position: "Senior Critical Infrastructure Operator, Shaw",
-    quote:
-        "Found STAT Climate Control Solutions when I was looking for a partner company that could further my goal of providing Shaw with energy efficient and reliable cooling for Shaw’s electronic equipment. 'HVAC YOU CAN TRUST' became the way Shaw and STAT Climate worked together."
+  name: "Paul A",
+  position: "Senior Critical Infrastructure Operator, Shaw",
+  quote:
+    "Found STAT Climate Control Solutions when I was looking for a partner company that could further my goal of providing Shaw with energy efficient and reliable cooling for Shaw’s electronic equipment. 'HVAC YOU CAN TRUST' became the way Shaw and STAT Climate worked together."
 }, {
-    name: "Paul B",
-    position: "Senior Critical Infrastructure Operator, Shaw",
-    quote:
-        "Found STAT Climate Control Solutions when I was looking for a partner company that could further my goal of providing Shaw with energy efficient and reliable cooling for Shaw’s electronic equipment. 'HVAC YOU CAN TRUST' became the way Shaw and STAT Climate worked together."
+  name: "Paul B",
+  position: "Senior Critical Infrastructure Operator, Shaw",
+  quote:
+    "Found STAT Climate Control Solutions when I was looking for a partner company that could further my goal of providing Shaw with energy efficient and reliable cooling for Shaw’s electronic equipment. 'HVAC YOU CAN TRUST' became the way Shaw and STAT Climate worked together."
 }];
 const customer_card = document.getElementById("customer_card");
 
@@ -16,9 +16,9 @@ const customer_card = document.getElementById("customer_card");
 
 
 customer_card.innerHTML = testimonialData.map(
-    (card) =>
-        `<div class="flex flex-col shadow-xl rounded-lg">
-        <div class="flex items-center">
+  (card) =>
+    `<div class="flex flex-col shadow-xl rounded-3xl bg-white/10">
+        <div class="flex items-center ">
           <div class="p-7">
             <!-- stars -->
             <div class="flex py-3">
@@ -27,19 +27,19 @@ customer_card.innerHTML = testimonialData.map(
               <img src="./icon/start.svg" alt="" />
             </div>
             <!-- stars -->
-            <h2 class="text-3xl font-bold">${card.name}</h2>
-            <p>${card.position}</p>
+            <h2 class="text-3xl font-bold dark:text-white">${card.name}</h2>
+            <p class='dark:text-white'>${card.position}</p>
           </div>
           <img
             src="./Media/quotes.png"
-            class="ml-auto mr-2 w-20 h-20 object-contain"
+            class="ml-auto mr-2 w-20 h-20 object-contain dark:invert"
             alt=""
           />
         </div>
 
         <div class="flex flex-col">
           <hr />
-          <p class="p-7">
+          <p class="p-7 dark:text-white">
             “${card.quote}”
           </p>
         </div>
