@@ -5,10 +5,10 @@
                  class="text-red-500"
                     xmlns="http://www.w3.org/2000/svg"
                     stroke="currentColor"
-                    fill="none" 
+                   fill='currentColor'
                   >
                     <path
-
+fill="currentColor"
                       fill-rule="evenodd"
                       clip-rule="evenodd"
                       d="M14.1354 0.994906L21.2267 8.19591H21.2274L23.0001 9.9959L14.1363 18.9947L12.3636 17.1947L18.1966 11.2709H-0.000345V8.72745H18.2043L12.3626 2.79489L14.1354 0.994906Z"
