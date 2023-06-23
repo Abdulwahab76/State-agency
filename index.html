@@ -18,6 +18,9 @@
 
         theme: {
           extend: {
+            gridTemplateColumns: {
+              fluid: "repeat(auto-fit, minmax(20rem, 1fr))",
+            },
             colors: {
               dark: {
                 primary: "#1f2937",
@@ -155,13 +158,15 @@
       .satisfaction_right {
         @apply text-white text-center lg:text-left gap-3 grid items-center md:items-start flex-col col-span-12 lg:col-span-8 xl:col-span-9;
       }
-      .satisfaction_right .company_logos {
+      .company_logos {
         @apply flex mb-10 lg:mx-0 mx-auto lg:mb-0 md:w-11/12 pt-3 flex-wrap gap-10 justify-center lg:justify-between;
       }
       .company_logos .sponser {
         @apply h-14 w-32 object-cover;
       }
-
+      .sponser_invert {
+        @apply h-14 w-20 object-fill;
+      }
       .satisfaction_bottom {
         @apply flex w-11/12 mx-auto flex-wrap py-5 gap-4 md:justify-normal justify-center;
       }
@@ -169,13 +174,17 @@
 
       /* commercial start */
       .commercial {
-        @apply grid grid-cols-1  place-items-center md:grid-cols-2  lg:grid-cols-4 py-10 gap-6;
+        @apply grid grid-cols-1 place-items-center md:grid-cols-2  lg:grid-cols-4 py-10 gap-3;
       }
       .commercial .card {
         @apply flex flex-col gap-3 items-start p-3 px-5;
       }
       .commercial .card_image {
         @apply w-20 h-20 shadow-lg p-5 rounded-full  flex justify-center items-center;
+      }
+      .card .fill_red {
+        filter: invert(18%) sepia(82%) saturate(3804%) hue-rotate(348deg)
+          brightness(85%) contrast(92%);
       }
       .card_image.active {
         @apply bg-light-primary;
@@ -184,19 +193,14 @@
         @apply invert;
       }
       .card.active {
-        @apply shadow-lg;
+        @apply shadow-xl;
       }
       /* commercial end */
       /* security start */
       .main_security {
-        @apply bg-[url('./Media/curved-phone.png')] md:bg-[url('./Media/state-bg.png')] bg-cover   py-20 min-h-[100%]  w-[100vw] max-w-full  bg-no-repeat;
+        @apply bg-[url('./Media/curved-phone.png')] md:bg-[url('./Media/state-bg.png')] bg-cover   py-20 min-h-[100vh]  w-[100vw] max-w-full  bg-no-repeat;
       }
-      .bg_security {
-        /* background-image: url("./Media/security-bg.png");
-        background-position: bottom;
-        background-repeat: no-repeat;
-        background-size: 52% auto; */
-      }
+
       .main_security .security_box {
         @apply grid grid-cols-1 md:grid-cols-3 gap-10;
       }
@@ -206,7 +210,26 @@
       .box_list li {
         @apply font-bold py-1 whitespace-nowrap;
       }
+
       /* security end */
+
+      /* review start */
+      .review_main {
+        @apply grid-cols-fluid  grid gap-6;
+      }
+      .review_main .card {
+        @apply flex flex-col gap-6 items-start py-10 px-5 shadow-xl rounded-xl;
+      }
+      .review_main .card.active {
+        @apply shadow-xl;
+      }
+      .review_main .card .card_image {
+        @apply flex  items-center;
+      }
+      .review_main .card .card_image.active {
+        @apply bg-transparent;
+      }
+      /* review end */
     </style>
 
     <title>Home Page</title>
@@ -621,7 +644,7 @@
           </div>
         </div>
       </div>
-      <div class="section_divider wrapper">
+      <div class="wrapper">
         <div>
           <h2 class="heading_md text-center">
             STAT Climate Control Solutions Calgary is a reputable <br />
@@ -649,11 +672,13 @@
             class="flex basis-full flex-col-reverse md:flex-col flex-wrap gap-20 section_divider"
           >
             <!-- two column section -->
-            <div class="flex justify-center items-center gap-20 flex-wrap">
+            <div class="flex justify-between items-center gap-20 flex-wrap">
               <div
                 class="basis-full md:basis-2/5 flex gap-6 flex-col text-center md:text-left"
               >
-                <h2 class="heading_md font-bold">HVAC Control Experts</h2>
+                <h2 class="heading_lg font-bold !leading-tight">
+                  HVAC Control Experts
+                </h2>
                 <p class="text-center md:text-left">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
                   quae nobis, illo eaque ab maiores aliquam magni asperiores
@@ -669,7 +694,7 @@
                 </p>
 
                 <button
-                  class="primary_gradient_bg w-44 px-4 text-left rounded-full p-2 items-center font-medium text-white flex justify-between gap-3"
+                  class="primary_gradient_bg w-44 mx-auto md:mx-0 px-4 text-left rounded-full p-2 items-center font-medium text-white flex justify-between gap-3"
                 >
                   Learn More
                   <div
@@ -698,9 +723,9 @@
             </div>
 
             <div
-              class="flex-col-reverse lg:flex-row flex justify-center items-center gap-20 flex-wrap"
+              class="flex-col-reverse md:flex-row flex justify-between items-center gap-20 flex-wrap"
             >
-              <div class="basis-full md:basis-2/5 shrink-0 relative">
+              <div class="basis-full md:basis-2/5 relative">
                 <div
                   class="-right-11 top-4 absolute bg-white h-20 w-20 flex justify-center items-center rounded-full"
                 >
@@ -719,7 +744,7 @@
               <div
                 class="basis-full md:basis-2/5 flex gap-6 flex-col text-center md:text-left"
               >
-                <h2 class="heading_md font-bold">
+                <h2 class="heading_lg font-bold !leading-tight">
                   Building Management <br />
                   System (BMS)
                 </h2>
@@ -736,7 +761,7 @@
                 </p>
 
                 <button
-                  class="primary_gradient_bg w-44 px-4 text-left rounded-full p-2 items-center font-medium text-white flex justify-between gap-3"
+                  class="primary_gradient_bg w-44 px-4 text-left mx-auto md:mx-0 rounded-full p-2 items-center font-medium text-white flex justify-between gap-3"
                 >
                   Learn More
                   <div
@@ -749,12 +774,14 @@
             </div>
 
             <div
-              class="flex-1 flex justify-center items-center gap-20 flex-wrap"
+              class="flex-1 flex justify-between items-center gap-20 flex-wrap"
             >
               <div
                 class="basis-full md:basis-2/5 flex gap-6 flex-col text-center md:text-left"
               >
-                <h2 class="heading_md font-bold">Backflow Testing</h2>
+                <h2 class="heading_lg font-bold !leading-tight">
+                  Backflow Testing
+                </h2>
                 <p class="text-center md:text-left">
                   Don't risk your business being out of compliance with the
                   Water Utility Bylaw. Trust STAT Climate Control Solutions for
@@ -770,7 +797,7 @@
                 </p>
 
                 <button
-                  class="cta gap-2 items-center rounded-full flex w-48 p-1 primary_gradient_bg"
+                  class="cta gap-2 items-center mx-auto md:mx-0 rounded-full flex w-48 p-1 primary_gradient_bg"
                 >
                   <div
                     class="bg-white/30 h-10 w-10 rounded-full flex justify-center items-center"
@@ -825,7 +852,7 @@
     <!-- security start -->
 
     <section class="main_security relative" style="background-size: 100% 100%">
-      <div class="relative h-full w-full">
+      <div class="relative h-full top-7 w-full">
         <!-- <img
           src="./Media/state-bg.png"
           class="w-full h-[80%] hidden lg:block"
@@ -900,9 +927,154 @@
         </div>
       </div>
     </section>
-    <section class="section_divider"></section>
+    <section class="section_divider wrapper">
+      <div>
+        <div class="flex-1 flex justify-between items-center gap-20 flex-wrap">
+          <div
+            class="basis-full md:basis-2/5 flex gap-6 flex-col text-center md:text-left"
+          >
+            <h2 class="heading_lg font-bold !leading-tight">
+              Heating and Air Conditioning - Residential
+            </h2>
+            <p class="text-center md:text-left">
+              STAT Climate Control Solutions Calgary is the best choice for
+              furnace replacement, heating, and air conditioning (HVAC)
+              services. We offer competitive prices, outstanding customer
+              service, and expert, experienced installation, and maintenance.
+            </p>
+
+            <button
+              class="primary_gradient_bg w-44 py-1 px-1.5 mx-auto md:mx-0 text-left rounded-full font-medium text-white flex justify-end items-center gap-3"
+            >
+              Learn More
+              <div
+                class="w-10 h-10 bg-white/50 flex items-center justify-center rounded-full p-3"
+              >
+                <img
+                  src="./icon/arrow.svg"
+                  style="
+                    filter: invert(95%) sepia(84%) saturate(0%)
+                      hue-rotate(247deg) brightness(104%) contrast(100%);
+                  "
+                  alt=""
+                />
+              </div>
+            </button>
+            <div
+              class="flex mx-auto pt-10 flex-wrap gap-10 justify-center lg:justify-between"
+            >
+              <img src="./Media/bbbR.png" class="sponser_invert" alt="" />
+              <img src="./Media/googleR.png" class="sponser_invert" alt="" />
+              <img src="./Media/calbary.png" class="sponser_invert" alt="" />
+              <img src="./Media/yelpR.png" class="sponser_invert" alt="" />
+            </div>
+          </div>
+          <div class="basis-full md:basis-2/5 shrink-0 relative">
+            <div
+              class="-left-11 top-4 absolute bg-white h-20 w-20 flex justify-center items-center rounded-full"
+            >
+              <img
+                src="./Media/experts.png"
+                class="w-[70px] h-[70px] object-contain p-4 rounded-full bg-light-primary"
+                alt=""
+              />
+            </div>
+            <img
+              src="./Media/Stat Climate Control-0673.jpg"
+              class="rounded-3xl max-w-full"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="py-10">
+        <div class="commercial" id="residential">
+          <script src="./constants/residential.js"></script>
+        </div>
+      </div>
+      <hr class="h-[5px] border-gray-300 w-full" />
+    </section>
 
     <!-- security end -->
+
+    <!-- review start -->
+    <section class="section_divider relative">
+      <div
+        class="flex justify-between absolute top-[60%] translate-y-[-50%] w-full px-5 items-center gap-2"
+      >
+        <div class="arrow_btn">
+          <svg
+            width="23"
+            height="19"
+            viewBox="0 0 23 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M8.86432 0.994906L1.77312 8.19591H1.77243L-0.000276 9.9959L8.86342 18.9947L10.6361 17.1947L4.80327 11.2709H23.0001V8.72745H4.7955L10.6371 2.79489L8.86432 0.994906Z"
+              fill="black"
+            />
+          </svg>
+        </div>
+
+        <div class="arrow_btn bg-red-700">
+          <svg
+            width="23"
+            height="19"
+            viewBox="0 0 23 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M14.1354 0.994906L21.2267 8.19591H21.2274L23.0001 9.9959L14.1363 18.9947L12.3636 17.1947L18.1966 11.2709H-0.000345V8.72745H18.2043L12.3626 2.79489L14.1354 0.994906Z"
+              fill="white"
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="wrapper flex flex-col gap-7">
+        <!-- upper title-->
+        <div class="flex justify-between items-center">
+          <div class="flex flex-col gap-5">
+            <h2 class="heading_lg text-left">5-Star Google Reviews</h2>
+            <div class="flex gap-3 items-center">
+              <img
+                src="./Media/fiveStar.png"
+                class="h-6 w-28 object-contain"
+                alt=""
+              />
+              <p class="text-lg"><b> 5.0</b> rating of <b>23</b> reviews</p>
+            </div>
+          </div>
+          <button
+            class="primary_gradient_bg mb-auto w-44 py-1 px-1.5 md:mx-0 text-left rounded-full font-medium text-white flex justify-end items-center gap-3"
+          >
+            Learn More
+            <div
+              class="w-10 h-10 bg-white/50 flex items-center justify-center rounded-full p-3"
+            >
+              <img
+                src="./icon/arrow.svg"
+                style="
+                  filter: invert(95%) sepia(84%) saturate(0%) hue-rotate(247deg)
+                    brightness(104%) contrast(100%);
+                "
+                alt=""
+              />
+            </div>
+          </button>
+        </div>
+        <!-- lower card-->
+        <div id="reviewContainer" class="review_main">
+          <script src="./constants/reviewProfile.js"></script>
+        </div>
+      </div>
+    </section>
+    <!-- review end -->
   </body>
   <script src="theme.js"></script>
 </html>

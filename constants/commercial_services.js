@@ -43,7 +43,12 @@ const servicesData = [
   }
 ];
 
+
+
+
 let commercialContainer = document.getElementById('commercialContainer')
+console.log(commercialContainer, 'commercial===');
+
 let activeCard = null;
 
 function handleClick(clickedCard) {
@@ -88,3 +93,4 @@ commercialContainer.innerHTML = servicesData.map(
           </div >`
 ).join('');
 console.log(servicesData);
+
