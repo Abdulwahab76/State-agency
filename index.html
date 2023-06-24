@@ -215,10 +215,10 @@
 
       /* review start */
       .review_main {
-        @apply grid-cols-fluid  grid gap-6;
+        @apply grid-cols-fluid grid gap-6;
       }
       .review_main .card {
-        @apply flex flex-col gap-6 items-start py-10 px-5 shadow-xl rounded-xl;
+        @apply flex flex-col gap-6 items-start py-10 px-5 shadow-xl rounded-xl  [&:not(:first-child)]:hidden md:[&:not(:first-child)]:flex;
       }
       .review_main .card.active {
         @apply shadow-xl;
@@ -1002,7 +1002,7 @@
       <div
         class="flex justify-between absolute top-[60%] translate-y-[-50%] w-full px-5 items-center gap-2"
       >
-        <div class="arrow_btn">
+        <div class="arrow_btn" id="prevButton">
           <svg
             width="23"
             height="19"
@@ -1019,7 +1019,7 @@
           </svg>
         </div>
 
-        <div class="arrow_btn bg-red-700">
+        <div class="arrow_btn bg-red-700" id="nextButton">
           <svg
             width="23"
             height="19"
@@ -1038,10 +1038,14 @@
       </div>
       <div class="wrapper flex flex-col gap-7">
         <!-- upper title-->
-        <div class="flex justify-between items-center">
-          <div class="flex flex-col gap-5">
-            <h2 class="heading_lg text-left">5-Star Google Reviews</h2>
-            <div class="flex gap-3 items-center">
+        <div
+          class="flex justify-between items-center gap-5 md:items-center md:mx-0 mx-0 flex-col md:flex-row"
+        >
+          <div class="flex flex-col md:items-start items-center gap-5 w-full">
+            <h2 class="heading_lg text-center md:text-left">
+              5-Star Google Reviews
+            </h2>
+            <div class="flex gap-3">
               <img
                 src="./Media/fiveStar.png"
                 class="h-6 w-28 object-contain"
@@ -1051,11 +1055,11 @@
             </div>
           </div>
           <button
-            class="primary_gradient_bg mb-auto w-44 py-1 px-1.5 md:mx-0 text-left rounded-full font-medium text-white flex justify-end items-center gap-3"
+            class="primary_gradient_bg mb-auto w-44 md:w-56 py-1 px-1.5 md:mx-0 text-left rounded-full font-medium text-white flex justify-end items-center gap-3"
           >
-            Learn More
+            View Reviews
             <div
-              class="w-10 h-10 bg-white/50 flex items-center justify-center rounded-full p-3"
+              class="w-10 h-10 bg-white/20 flex items-center justify-center rounded-full p-3"
             >
               <img
                 src="./icon/arrow.svg"
