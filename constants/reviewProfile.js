@@ -20,6 +20,13 @@ let reviewProfileData = [
         content: 'I was so impressed at how prompt the technician was to show up at my door as stated, fix my heated flooring issue and everything is working perfectly. It was a pleasure to have found such a great dependable',
         img: './Media/profileIcon.png'
     },
+    {
+        title: 'Gregory Davis ',
+        subTile: '(Professionalism)',
+        rating: 5,
+        content: 'I was so impressed at how prompt the technician was to show up at my door as stated, fix my heated flooring issue and everything is working perfectly. It was a pleasure to have found such a great dependable',
+        img: './Media/profileIcon.png'
+    },
 
 ]
 let reviewContainer = document.getElementById('reviewContainer')
@@ -27,27 +34,36 @@ let reviewContainer = document.getElementById('reviewContainer')
 
 reviewContainer.innerHTML = reviewProfileData.map(
     (card, ind) =>
-        `<div class="card" onclick='handleClick(this)'>
-            <div class="card_image w-full justify-between">
-              <div class='flex gap-3'>
-                    <img src="${card.img}" class='rounded-full ' alt="" />
-                    <div class='flex flex-col'>
-                         <h2 class="text-2xl font-bold">${card.title}</h2>
-                         <p class="text-light-paragraph">  ${card.subTile}  </p>
-                    </div>
-             </div>
-              <img src="./Media/googeLogo.png" class='h-7 w-7 ' alt="" />
-
+        `<div class="swiper-slide">
+        <div class="card h-full" onclick="handleClick(this)">
+          <div class="card_image w-full justify-between">
+            <div class="flex gap-3">
+              <img
+                src="${card.img}"
+                class="rounded-full h-14 w-14"
+                alt=""
+              />
+              <div class="flex flex-col">
+                <h2 class="text-xl font-bold">${card.title}</h2>
+                <p class="text-light-paragraph text-sm">
+                  ${card.subTile}
+                </p>
+              </div>
             </div>
-               
-            
-            <div>
-            <img src="./Media/fiveStar.png" class='h-6 w-28 object-contain ' alt="" />
+            <img src="./Media/googeLogo.png" class="h-7 w-7" alt="" />
+          </div>
 
-            </div>
-              
-              <p class="text-light-paragraph font-medium w-11/12">
-           ${card.content}
-              </p>
-            </div >`
+          <div>
+            <img
+              src="./Media/fiveStar.png"
+              class="h-6 w-28 object-contain"
+              alt=""
+            />
+          </div>
+
+          <p class="text-light-paragraph font-medium w-11/12">
+          ${card.content}
+          </p>
+        </div>
+      </div>`
 ).join('');
