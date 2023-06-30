@@ -147,7 +147,7 @@
       /* state climate start */
 
       .state_container {
-        @apply relative w-full   bg-cover;
+        @apply relative w-full bg-cover;
       }
       .state_flex {
         @apply flex md:p-10 p-10 gap-10 justify-center items-center  flex-wrap;
@@ -260,7 +260,7 @@
         background-size: cover auto;
       }
       .curved_line {
-        @apply max-h-[100vh] max-w-[100vw] w-6/12  md:w-6/12 md:h-[45%];
+        @apply max-h-[100vh] max-w-[100vw] w-7/12    md:h-[45%];
       }
     </style>
 
@@ -456,14 +456,9 @@
 
     <!-- State climate  -->
     <section
-      class="section_divider relative bg-[url('./icon/state-responsive.svg')] bg-center h-[100%] bg-no-repeat w-full"
+      class="section_divider relative bg-[url('./icon/state-merge-bg.svg')] bg-center h-[100%] bg-no-repeat w-full"
       style="background-size: 100% 100%"
     >
-      <!-- <img
-        src="./Media/state-img.png"
-        class="absolute w-[100vh] h-full top-0 left-0 object-cover"
-        alt=""
-      /> -->
       <div class="absolute z-10 top-12 md:top-6 rotate-[180deg] w-full">
         <object
           class="curved_line"
@@ -526,7 +521,7 @@
           </div>
         </div>
       </div>
-      <div class="absolute bottom-12 md:bottom-6 w-full">
+      <div class="absolute bottom-14 md:bottom-6 w-full">
         <object
           class="curved_line"
           id="svg"
@@ -639,22 +634,17 @@
         </div>
       </div>
 
-      <div class="section_divider">
-        <div class="state_container">
-          <div
-            class="absolute z-10 -top-10 md:-top-12 lg:-top-24 rotate-[180deg] w-full"
-          >
-            <div class="absolute bottom-12 shape_rotate w-full">
-              <img src="./icon/curved-line.svg" alt="" />
-            </div>
-            <img src="./icon/bottom.svg" alt="" />
-          </div>
-          <div class="mx-auto w-10/12 justify-center text-center py-10">
-            <div class="state_right relative z-20">
+      <div
+        class="section_divider bg-[url('./icon/HVAC-merge.svg')] bg-no-repeat w-full"
+        style="background-size: 100% 100%"
+      >
+        <div class="wrapper flex flex-col gap-36">
+          <div class="mx-auto justify-center text-center py-10 relative">
+            <div class="state_right relative z-20 text-white">
               <h2 class="heading_lg">
                 24 Hour Emergency Commercial HVAC Repair
               </h2>
-              <p class="text-light-paragraph">
+              <p class="text-white">
                 Don't Let a Broken Cooling, Refrigeration or Heating System Ruin
                 Your Day! Have you ever experienced the panic that sets in when
                 your refrigeration or heating system suddenly stops working? The
@@ -662,30 +652,27 @@
                 That's why STAT Climate Control Solutions is here to help with
                 emergency repair services, available 24 hours, 7 days a week.
               </p>
-              <button
-                class="primary_gradient_bg w-44 px-4 text-center rounded-full p-2 items-center font-medium text-white flex mx-auto justify-between gap-3"
-              >
-                Learn More
-                <div
-                  class="w-10 h-10 bg-white/50 flex items-center justify-center rounded-full p-3"
-                >
-                  <img src="./icon/arrow.svg" alt="" />
-                </div>
-              </button>
             </div>
           </div>
-
           <div
-            class="absolute z-10 -bottom-10 md:-bottom-16 lg:-bottom-20 w-full"
+            class="flex relative top-[105px] border border-red-600 bg-white items-center p-2.5 gap-2 w-full md:w-7/12 mx-auto rounded-full"
           >
-            <div class="absolute bottom-12 shape_rotate w-full">
-              <img src="./icon/curved-line.svg" alt="" />
+            <div
+              class="bg-black w-10 h-10 rounded-full flex justify-center items-center"
+            >
+              <img src="./Media/phone.png" class="invert w-5 h-5" alt="" />
             </div>
-            <img src="./icon/bottom.svg" alt="" />
+            <div class="w-full pr-10">
+              <p class="uppercase font-bold">
+                Call STAT Climate Control Solutions at
+                <span class="text-red-600"> (403) 226-6066 </span> now and let
+                us help you get back to a comfortable life.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="wrapper">
+      <div class="wrapper section_divider">
         <div>
           <h2 class="heading_md text-center">
             STAT Climate Control Solutions Calgary is a reputable <br />
