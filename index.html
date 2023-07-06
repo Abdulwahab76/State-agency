@@ -219,14 +219,14 @@
       /* commercial end */
       /* security start */
       .main_security {
-        @apply bg-[url('./Media/curved-phone.png')] md:bg-[url('./Media/state-bg.png')] bg-cover   py-20 min-h-[100vh]  w-[100vw] max-w-full  bg-no-repeat;
+        @apply bg-[url('./icon/safety-merge.svg')]  max-h-[100%] max-w-[100vw]    bg-no-repeat;
       }
 
       .main_security .security_box {
-        @apply grid grid-cols-1 md:grid-cols-3 gap-10;
+        @apply flex  flex-col md:flex-row justify-around   h-full;
       }
       .security_box .box_list {
-        @apply md:py-0 py-4 md:gap-3 flex flex-col gap-5;
+        @apply flex basis-full  md:basis-[25%]  flex-col;
       }
       .box_list li {
         @apply font-bold py-1 whitespace-nowrap;
@@ -253,14 +253,18 @@
       /* review end */
 
       .bg_merge {
-        background-image: url("./Media/bg-coverL.png"),
-          url("./Media/bg-rec.svg");
-        background-position: center, top center; /* Adjust the positioning as needed */
+        background-image: url("./icon/bg-house.svg"), url("./Media/bg-rec.svg");
+        /* Adjust the positioning as needed */
         background-repeat: no-repeat;
-        background-size: cover auto;
       }
       .curved_line {
-        @apply max-h-[100vh] max-w-[100vw] w-7/12    md:h-[45%];
+        @apply max-h-[100vh] max-w-[100vw] w-5/12  md:h-[45%];
+      }
+      .circular--square {
+        border-top-left-radius: 50% 50%;
+        border-top-right-radius: 50% 50%;
+        border-bottom-right-radius: 50% 50%;
+        border-bottom-left-radius: 50% 50%;
       }
     </style>
 
@@ -880,21 +884,15 @@
     <!-- security start -->
 
     <section class="main_security relative" style="background-size: 100% 100%">
-      <div class="relative h-full top-7 w-full">
-        <!-- <img
-          src="./Media/state-bg.png"
-          class="w-full h-[80%] hidden lg:block"
-          alt=""
-        /> -->
-
-        <div class="bg_security">
-          <div class="w-11/12 mx-auto flex gap-10 lg:gap-0 flex-col">
+      <div class="relative top-7">
+        <div class="bg_security py-10">
+          <div class="w-11/12 mx-auto flex flex-col pt-10 pb-16 gap-5">
             <h1 class="heading_lg text-left lg:text-center">
               Security and Fire Life Safety
             </h1>
 
             <div
-              class="security_box flex flex-col h-full lg:h-screen md:flex-row justify-around items-center"
+              class="security_box flex py-10 justify-center md:gap-0 gap-5 items-center"
             >
               <div class="box_list">
                 <h2 class="heading_md">Security</h2>
@@ -919,16 +917,7 @@
                   <li>Annual Testing and Certification</li>
                 </ul>
               </div>
-              <div
-                class="md:col-span-2 md:row-span-3 lg:col-span-1 lg:row-span-1"
-              >
-                <img
-                  src="./Media/security.png"
-                  class="w-full h-[100vh]"
-                  alt=""
-                />
-              </div>
-
+              <div></div>
               <div class="box_list">
                 <h2 class="heading_md">Fire Life Safety</h2>
                 <p>
@@ -1086,9 +1075,12 @@
     </section>
     <!-- review end -->
 
-    <section class="section_divider">
-      <div class="h-[100vh] w-full relative">
-        <div class="absolute z-10 top-12 md:top-6 rotate-[180deg] w-full">
+    <!-- <section
+      class="section_divider bg_merge"
+      style="background-size: 100% 100%"
+    >
+      <div class="relative h-[70vh]">
+        <div class="absolute z-10 -top-20 rotate-[180deg] w-full">
           <object
             class="curved_line"
             id="svg"
@@ -1097,14 +1089,57 @@
           ></object>
         </div>
         <div
-          class="w-full h-full relative bg_merge"
-          style="background-size: 100% 100%"
+          class="absolute bottom-10 md:w-full h-[60vh] right-0 md:h-[80vh] w-11/12"
         >
-          <div
-            class="absolute overflow-hidden top-0 left-0 w-full h-full"
-          ></div>
+          <div class="absolute top-0 bottom-0 left-0 md:left-[14%] right-0">
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 place-items-center md:flex-row"
+            >
+              <div class="flex flex-col gap-5 w-full md:text-left text-center">
+                <h2 class="text-4xl font-bold text-white">
+                  24 Hour Emergency <br />
+                  Residential Service
+                </h2>
+                <p class="text-white w-11/12">
+                  When your heating or air conditioning system shuts down call
+                  STAT Climate Control Solutions. We offer FAST, responsive
+                  emergency repair 24 hours a day, 7 days a week in Calgary and
+                  surrounding area. We respond quickly to get the heating or
+                  cooling system of your house working again.
+                </p>
+
+                <div
+                  class="flex absolute bottom-0 h-24 borde z-10 border-red-600 bg-white items-center px-6 p-2.5 gap-5 w-full md:w-4/6 mx-auto rounded-full"
+                >
+                  <div
+                    class="bg-black w-14 h-14 rounded-full flex justify-center items-center"
+                  >
+                    <img
+                      src="./Media/phone.png"
+                      class="invert w-7 h-7"
+                      alt=""
+                    />
+                  </div>
+                  <div class="w-full pr-7">
+                    <p class="uppercase font-bold">
+                      Don't wait and suffer in the cold or heat. Call STAT
+                      Climate Control Solutions at
+                      <span class="text-red-700">(403) 226-6066</span> now and
+                      let us help you get back to a comfortable life.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="md:w-[500px] w-11/12 h-[500px] md:h-[500px] max-w-full top-28 left-10 relative bg-center bg-red-400 bg-[url('./Media/state-img2.jpg')] flex bg-cover rounded-full"
+              >
+                
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="absolute bottom-12 md:bottom-6 w-full">
+        <div class="absolute -bottom-20 w-full">
           <object
             class="curved_line"
             id="svg"
@@ -1113,7 +1148,72 @@
           ></object>
         </div>
       </div>
+    </section> -->
+
+    <!-- State climate  -->
+    <section
+      class="section_divider relative bg_merge h-[100%]"
+      style="background-size: 100% 100%"
+    >
+      <div class="absolute z-10 top-12 md:top-6 rotate-[180deg] w-full">
+        <object
+          class="curved_line"
+          id="svg"
+          type="image/svg+xml"
+          data="./icon/curved-line.svg"
+        ></object>
+      </div>
+      <div class="state_container bottom-0 md:bottom-16">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 place-items-center w-[86%] ml-auto"
+        >
+          <div class="flex flex-col gap-5 w-full md:text-left text-center">
+            <h2 class="text-4xl font-bold text-white">
+              24 Hour Emergency <br />
+              Residential Service
+            </h2>
+            <p class="text-white w-11/12">
+              When your heating or air conditioning system shuts down call STAT
+              Climate Control Solutions. We offer FAST, responsive emergency
+              repair 24 hours a day, 7 days a week in Calgary and surrounding
+              area. We respond quickly to get the heating or cooling system of
+              your house working again.
+            </p>
+
+            <div
+              class="flex absolute bottom-0 h-24 borde z-10 border-red-600 bg-white items-center px-6 p-2.5 gap-5 w-full md:w-7/12 mx-auto rounded-full"
+            >
+              <div
+                class="bg-black w-14 h-14 rounded-full flex justify-center items-center"
+              >
+                <img src="./Media/phone.png" class="invert w-7 h-7" alt="" />
+              </div>
+              <div class="w-full pr-7">
+                <p class="uppercase font-bold">
+                  Don't wait and suffer in the cold or heat. Call STAT Climate
+                  Control Solutions at
+                  <span class="text-red-700">(403) 226-6066</span> now and let
+                  us help you get back to a comfortable life.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="md:w-[500px] w-11/12 h-[500px] md:h-[500px] max-w-full top-28 left-10 relative bg-center bg-red-400 bg-[url('./Media/state-img2.jpg')] flex bg-cover rounded-full"
+          ></div>
+        </div>
+      </div>
+      <div class="absolute bottom-14 md:bottom-6 w-full">
+        <object
+          class="curved_line"
+          id="svg"
+          type="image/svg+xml"
+          data="./icon/curved-line.svg"
+        ></object>
+      </div>
     </section>
+    <!-- State climate end -->
     <script src="./slider.js"></script>
     <script>
       // let svgObject = document.getElementById("svg");
