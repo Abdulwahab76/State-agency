@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // centeredSlides: true,
         breakpoints: {
             // Set breakpoints for different screen sizes
+            340: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+            },
             640: {
                 slidesPerView: 1,
                 spaceBetween: 10,

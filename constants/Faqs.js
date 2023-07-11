@@ -43,11 +43,11 @@ let FaqsContainer = document.getElementById("faqsContainer");
 FaqsContainer.innerHTML = Faqs.map(
     (faq, ind) =>
         `<div class="border-b border-gray-200 w-full faq">
-        <div class="flex w-full p-8 gap-x-10">
+        <div class="flex w-full p-4 md:p-8 gap-x-10">
         <p class="text-lg text-gray-400 font-medium serial">0${ind + 1}</p>
 
           <div class="flex gap-5 flex-col basis-full">
-            <p class="text-2xl font-bold question" >
+            <p class="text-lg md:text-2xl font-bold question" >
               ${faq.question}
             </p>
             <p class="leading-relaxed answer">
@@ -57,7 +57,7 @@ FaqsContainer.innerHTML = Faqs.map(
           <span
             class="ml-auto  w-[40px] h-[30px] toggle-button  cursor-pointer bg-gray-200 rounded-full flex justify-center items-center"
           >
-            <p class="font-extrabold">+</p>
+          <i class='fa-solid fa-plus h-[14px] text-sm'></i>
           </span>
         </div>
       </div>`
@@ -82,17 +82,22 @@ questions.forEach((question, index) => {
         });
         questions.forEach((ques) => {
             ques.classList.remove("active-question");
+
         });
+        serial_active.forEach((serial) => {
+            serial.classList.remove("serial-active");
+        })
         toggleButtons.forEach((button) => {
-            button.innerHTML = "+";
+            button.innerHTML = "<i class='fa-solid fa-plus h-[14px] text-sm'></i>";
             button.classList.remove("active");
+
         });
 
         // Toggle the clicked question's active state and show/hide the answer
         if (!isActive) {
             answer.classList.add("show");
             question.classList.add("active-question");
-            toggleButton.innerHTML = "-";
+            toggleButton.innerHTML = "<i class='fa-solid fa-minus h-[14px]'></i>";
             toggleButton.classList.add("active");
             toggleSerial.classList.add("serial-active");
         }
