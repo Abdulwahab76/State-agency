@@ -1161,11 +1161,11 @@
       </div>
     </section>
     <!-- emergency end -->
-    <section
-      class="section_divider bg-[url('./Media/bg-faq.svg')] bg-bottom bg-no-repeat"
-      style="background-size: 100% 72%"
-    >
-      <div>
+    <section class="section_divider">
+      <div
+        class="bg-[url('./Media/bg-faq.svg')] bg-bottom bg-no-repeat"
+        style="background-size: 100% 70%"
+      >
         <h1 class="heading_lg text-center">Frequently Asked Question</h1>
         <div
           class="flex w-full md:w-7/12 flex-col mx-auto p-6 md:p-10 items-center"
@@ -1174,8 +1174,75 @@
           <script src="./constants/Faqs.js"></script>
         </div>
       </div>
+      <div
+        class="relative bg-[url('./icon/bg-footer.svg')] bg-cover h-[100vh] w-full"
+        style="background-size: 100% 100%"
+      >
+        <div class="absolute z-10 top-2 md:top-28 rotate-[180deg] w-full">
+          <object
+            class="curved_line"
+            id="svg"
+            type="image/svg+xml"
+            data="./icon/curved-line.svg"
+          ></object>
+        </div>
+        <div class="absolute top-[20%]">
+          <div
+            class="grid grid-cols-1 md:grid-cols-5 place-items-center place-content-start"
+          >
+            <div
+              class="col-span-1 overflow-hidden relative -top-5 rotate-[7deg]"
+            >
+              <img src="./Media/worker-footer.png" class="h-96" alt="" />
+            </div>
+            <div class="flex flex-col gap-5 w-full text-center col-span-3">
+              <h2 class="text-4xl font-bold text-white">
+                Call (403) 226-6066 for 24-Hour Emergency HVAC, Refrigeration
+                and ALL Mechanical Services
+              </h2>
+              <button
+                class="cta gap-2 items-center rounded-full flex w-52 mx-auto p-1 bg-black"
+              >
+                <div
+                  class="bg-white/20 h-10 w-10 rounded-full flex justify-center items-center ml-1"
+                >
+                  <div>
+                    <img
+                      src="./Media/phone.png"
+                      class="invert h-5 w-5"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="flex flex-col">
+                  <p class="flex flex-col items-start">
+                    <span
+                      class="font-normal text-sm text-white dark:text-gray-500"
+                      >CALL US 24/7</span
+                    >
+                    <span
+                      class="my-button font-bold text-md text-white dark:text-gray-500"
+                    >
+                      (403) 226-6066
+                    </span>
+                  </p>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="absolute !bottom-28 md:bottom-10 w-full">
+          <object
+            class="curved_line"
+            id="svg"
+            type="image/svg+xml"
+            data="./icon/curved-line.svg"
+          ></object>
+        </div>
+      </div>
     </section>
     <script src="./slider.js"></script>
+
     <script>
       // let svgObject = document.getElementById("svg");
       // function SvgManuplate() {
